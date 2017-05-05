@@ -1,6 +1,6 @@
 package com.jiuair.service.impl;
 
-import com.jiuair.dao.SysMenuDao;
+import com.jiuair.dao.base.SysMenuDao;
 import com.jiuair.entity.SysMenuEntity;
 import com.jiuair.service.SysMenuService;
 import com.jiuair.service.SysRoleMenuService;

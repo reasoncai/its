@@ -1,7 +1,7 @@
 package com.jiuair.service.impl;
 
 import com.alibaba.fastjson.JSON;
-import com.jiuair.dao.SysConfigDao;
+import com.jiuair.dao.base.SysConfigDao;
 import com.jiuair.entity.SysConfigEntity;
 import com.jiuair.service.SysConfigService;
 import com.jiuair.utils.RRException;

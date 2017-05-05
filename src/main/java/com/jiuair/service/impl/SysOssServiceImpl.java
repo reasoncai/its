@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Map;
 
-import com.jiuair.dao.SysOssDao;
+import com.jiuair.dao.base.SysOssDao;
 import com.jiuair.entity.SysOssEntity;
 import com.jiuair.service.SysOssService;
 

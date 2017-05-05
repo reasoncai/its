@@ -1,6 +1,6 @@
 package com.jiuair.service.impl;
 
-import com.jiuair.dao.SysUserDao;
+import com.jiuair.dao.base.SysUserDao;
 import com.jiuair.entity.SysUserEntity;
 import com.jiuair.service.SysRoleService;
 import com.jiuair.service.SysUserRoleService;

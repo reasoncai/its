@@ -1,6 +1,6 @@
 package com.jiuair.service.impl;
 
-import com.jiuair.dao.ScheduleJobLogDao;
+import com.jiuair.dao.base.ScheduleJobLogDao;
 import com.jiuair.entity.ScheduleJobLogEntity;
 import com.jiuair.service.ScheduleJobLogService;
 

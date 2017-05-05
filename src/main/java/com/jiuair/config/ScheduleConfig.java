@@ -1,5 +1,6 @@
 package com.jiuair.config;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +20,7 @@ import java.util.Properties;
 public class ScheduleConfig {
 
     @Bean
-    public SchedulerFactoryBean schedulerFactoryBean(DataSource dataSource) {
+    public SchedulerFactoryBean schedulerFactoryBean(@Qualifier("baseDataSource")DataSource dataSource) {
         SchedulerFactoryBean factory = new SchedulerFactoryBean();
         factory.setDataSource(dataSource);
 
@@ -53,4 +54,5 @@ public class ScheduleConfig {
 
         return factory;
     }
+
 }

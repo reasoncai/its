@@ -1,4 +1,4 @@
-package com.jiuair.dao;
+package com.jiuair.dao.base;
 
 import com.jiuair.entity.SysUserRoleEntity;
 

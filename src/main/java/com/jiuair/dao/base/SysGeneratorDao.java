@@ -1,4 +1,4 @@
-package com.jiuair.dao;
+package com.jiuair.dao.base;
 
 import java.util.List;
 import java.util.Map;

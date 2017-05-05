@@ -1,6 +1,6 @@
 package com.jiuair.service.impl;
 
-import com.jiuair.dao.SysLogDao;
+import com.jiuair.dao.base.SysLogDao;
 import com.jiuair.entity.SysLogEntity;
 import com.jiuair.service.SysLogService;
 import org.springframework.beans.factory.annotation.Autowired;

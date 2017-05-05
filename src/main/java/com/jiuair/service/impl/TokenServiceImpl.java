@@ -1,6 +1,6 @@
 package com.jiuair.service.impl;
 
-import com.jiuair.dao.TokenDao;
+import com.jiuair.dao.base.TokenDao;
 import com.jiuair.entity.TokenEntity;
 import com.jiuair.service.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;

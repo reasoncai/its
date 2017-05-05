@@ -1,6 +1,6 @@
 package com.jiuair.service.impl;
 
-import com.jiuair.dao.ScheduleJobDao;
+import com.jiuair.dao.base.ScheduleJobDao;
 import com.jiuair.entity.ScheduleJobEntity;
 import com.jiuair.service.ScheduleJobService;
 import com.jiuair.utils.Constant.ScheduleStatus;
@@ -32,13 +32,14 @@ public class ScheduleJobServiceImpl implements ScheduleJobService {
 	@PostConstruct
 	public void init(){
 		List<ScheduleJobEntity> scheduleJobList = schedulerJobDao.queryList(new HashMap<>());
+
 		for(ScheduleJobEntity scheduleJob : scheduleJobList){
 			CronTrigger cronTrigger = ScheduleUtils.getCronTrigger(scheduler, scheduleJob.getJobId());
             //如果不存在，则创建
             if(cronTrigger == null) {
-                ScheduleUtils.createScheduleJob(scheduler, scheduleJob);
+				ScheduleUtils.createScheduleJob(scheduler, scheduleJob);
             }else {
-                ScheduleUtils.updateScheduleJob(scheduler, scheduleJob);
+				ScheduleUtils.updateScheduleJob(scheduler, scheduleJob);
             }
 		}
 	}

@@ -1,6 +1,6 @@
 package com.jiuair.service.impl;
 
-import com.jiuair.dao.SysUserRoleDao;
+import com.jiuair.dao.base.SysUserRoleDao;
 import com.jiuair.service.SysUserRoleService;
 
 import java.util.HashMap;

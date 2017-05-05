@@ -1,6 +1,6 @@
 package com.jiuair.service.impl;
 
-import com.jiuair.dao.UserDao;
+import com.jiuair.dao.base.UserDao;
 import com.jiuair.entity.UserEntity;
 import com.jiuair.service.UserService;
 import com.jiuair.utils.RRException;

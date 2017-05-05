@@ -1,6 +1,6 @@
 package com.jiuair.service.impl;
 
-import com.jiuair.dao.SysGeneratorDao;
+import com.jiuair.dao.base.SysGeneratorDao;
 import com.jiuair.service.SysGeneratorService;
 import com.jiuair.utils.GenUtils;
 import org.apache.commons.io.IOUtils;

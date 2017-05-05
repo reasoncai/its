@@ -1,6 +1,6 @@
 package com.jiuair.service.impl;
 
-import com.jiuair.dao.SysRoleMenuDao;
+import com.jiuair.dao.base.SysRoleMenuDao;
 import com.jiuair.service.SysRoleMenuService;
 
 import java.util.HashMap;
