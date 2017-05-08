@@ -22,7 +22,6 @@ import javax.sql.DataSource;
 @Configuration
 @MapperScan(basePackages = PssDataSourceConfig.PACKAGE, sqlSessionFactoryRef = "pssSqlSessionFactory")
 public class PssDataSourceConfig {
-    // 精确到 base 目录，以便跟其他数据源隔离
     static final String PACKAGE = "com.jiuair.dao.pss";
     private static final String MAPPER_LOCATION = "classpath:mapper/pss/*.xml";
     private static final String CONFIG_LOCATION = "mybatis.xml";
