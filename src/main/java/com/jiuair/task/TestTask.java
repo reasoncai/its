@@ -1,7 +1,7 @@
 package com.jiuair.task;
 
-import com.jiuair.entity.SysUserEntity;
-import com.jiuair.service.SysUserService;
+import com.jiuair.base.entity.SysUserEntity;
+import com.jiuair.base.service.SysUserService;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.slf4j.Logger;

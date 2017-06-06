@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jiuair.its.dao.OrderPsgMapper">
+  <resultMap id="BaseResultMap" type="com.jiuair.its.domain.OrderPsg">
+    <id column="PSG_ID" jdbcType="VARCHAR" property="psgId" />
+    <result column="ORDER_ID" jdbcType="VARCHAR" property="orderId" />
+    <result column="PSG_TYPE" jdbcType="VARCHAR" property="psgType" />
+    <result column="PSG_NAME" jdbcType="VARCHAR" property="psgName" />
+    <result column="PSG_FIRST_NAME" jdbcType="VARCHAR" property="psgFirstName" />
+    <result column="PSG_LAST_NAME" jdbcType="VARCHAR" property="psgLastName" />
+    <result column="PSG_MID_NAME" jdbcType="VARCHAR" property="psgMidName" />
+    <result column="PSG_ID_TYPE" jdbcType="VARCHAR" property="psgIdType" />
+    <result column="PSG_ID_NO" jdbcType="VARCHAR" property="psgIdNo" />
+    <result column="PSG_BIRTHDY" jdbcType="TIMESTAMP" property="psgBirthdy" />
+    <result column="PSG_PARTNER" jdbcType="VARCHAR" property="psgPartner" />
+    <result column="PSG_MOBILE_PHONE" jdbcType="VARCHAR" property="psgMobilePhone" />
+    <result column="FARE_PRICE" jdbcType="DECIMAL" property="farePrice" />
+    <result column="FARE_TAX" jdbcType="DECIMAL" property="fareTax" />
+    <result column="FARE_EI" jdbcType="VARCHAR" property="fareEi" />
+    <result column="FARE_COMMENT" jdbcType="VARCHAR" property="fareComment" />
+    <result column="BAGGAGEWEIFTH" jdbcType="DECIMAL" property="baggageweifth" />
+    <result column="PAYSTATUS" jdbcType="CHAR" property="paystatus" />
+    <result column="PAYSEQNO" jdbcType="VARCHAR" property="payseqno" />
+    <result column="DCSSTATUS" jdbcType="VARCHAR" property="dcsstatus" />
+    <result column="RESTATUS" jdbcType="CHAR" property="restatus" />
+    <result column="DATE_CREATED" jdbcType="TIMESTAMP" property="dateCreated" />
+    <result column="WHO_CREATED" jdbcType="VARCHAR" property="whoCreated" />
+    <result column="DATE_MODIFIED" jdbcType="TIMESTAMP" property="dateModified" />
+    <result column="WHO_MODIFIED" jdbcType="VARCHAR" property="whoModified" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="SEX" jdbcType="CHAR" property="sex" />
+    <result column="FFP_NO" jdbcType="VARCHAR" property="ffpNo" />
+    <result column="TICKET_NO" jdbcType="VARCHAR" property="ticketNo" />
+    <result column="FARE_CN" jdbcType="DECIMAL" property="fareCn" />
+    <result column="FARE_YQ" jdbcType="DECIMAL" property="fareYq" />
+    <result column="BANK" jdbcType="VARCHAR" property="bank" />
+    <result column="BANKNO" jdbcType="VARCHAR" property="bankno" />
+    <result column="TICKET_NO1" jdbcType="VARCHAR" property="ticketNo1" />
+    <result column="FARE_PRICE1" jdbcType="DECIMAL" property="farePrice1" />
+    <result column="FARE_TAX1" jdbcType="DECIMAL" property="fareTax1" />
+    <result column="FARE_YQ1" jdbcType="DECIMAL" property="fareYq1" />
+    <result column="BANK_P" jdbcType="VARCHAR" property="bankP" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PSG_ID, ORDER_ID, PSG_TYPE, PSG_NAME, PSG_FIRST_NAME, PSG_LAST_NAME, PSG_MID_NAME, 
+    PSG_ID_TYPE, PSG_ID_NO, PSG_BIRTHDY, PSG_PARTNER, PSG_MOBILE_PHONE, FARE_PRICE, FARE_TAX, 
+    FARE_EI, FARE_COMMENT, BAGGAGEWEIFTH, PAYSTATUS, PAYSEQNO, DCSSTATUS, RESTATUS, DATE_CREATED, 
+    WHO_CREATED, DATE_MODIFIED, WHO_MODIFIED, EMAIL, SEX, FFP_NO, TICKET_NO, FARE_CN, 
+    FARE_YQ, BANK, BANKNO, TICKET_NO1, FARE_PRICE1, FARE_TAX1, FARE_YQ1, BANK_P
+  </sql>
+    <select id="selectByOrderId" parameterType="java.lang.String" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM ORDER_PSG
+        WHERE order_id = #{orderId,jdbcType=VARCHAR}}
+    </select>
+  <select id="selectByOrderIdAndName"  resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM ORDER_PSG
+    WHERE order_id = #{orderId,jdbcType=VARCHAR} and psg_name = #{psgName,jdbcType=VARCHAR}
+  </select>
+    <update id="changeName">
+        UPDATE order_psg
+        SET PSG_NAME = #{newName,jdbcType=VARCHAR}
+        WHERE PSG_ID = #{psgId,jdbcType=VARCHAR}
+        AND psg_name = #{oldName,jdbcType=VARCHAR}
+    </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ORDER_PSG
+    where PSG_ID = #{psgId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from ORDER_PSG
+    where PSG_ID = #{psgId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.jiuair.its.domain.OrderPsg">
+    insert into ORDER_PSG (PSG_ID, ORDER_ID, PSG_TYPE, 
+      PSG_NAME, PSG_FIRST_NAME, PSG_LAST_NAME, 
+      PSG_MID_NAME, PSG_ID_TYPE, PSG_ID_NO, 
+      PSG_BIRTHDY, PSG_PARTNER, PSG_MOBILE_PHONE, 
+      FARE_PRICE, FARE_TAX, FARE_EI, 
+      FARE_COMMENT, BAGGAGEWEIFTH, PAYSTATUS, 
+      PAYSEQNO, DCSSTATUS, RESTATUS, 
+      DATE_CREATED, WHO_CREATED, DATE_MODIFIED, 
+      WHO_MODIFIED, EMAIL, SEX, 
+      FFP_NO, TICKET_NO, FARE_CN, 
+      FARE_YQ, BANK, BANKNO, 
+      TICKET_NO1, FARE_PRICE1, FARE_TAX1, 
+      FARE_YQ1, BANK_P)
+    values (#{psgId,jdbcType=VARCHAR}, #{orderId,jdbcType=VARCHAR}, #{psgType,jdbcType=VARCHAR}, 
+      #{psgName,jdbcType=VARCHAR}, #{psgFirstName,jdbcType=VARCHAR}, #{psgLastName,jdbcType=VARCHAR}, 
+      #{psgMidName,jdbcType=VARCHAR}, #{psgIdType,jdbcType=VARCHAR}, #{psgIdNo,jdbcType=VARCHAR}, 
+      #{psgBirthdy,jdbcType=TIMESTAMP}, #{psgPartner,jdbcType=VARCHAR}, #{psgMobilePhone,jdbcType=VARCHAR}, 
+      #{farePrice,jdbcType=DECIMAL}, #{fareTax,jdbcType=DECIMAL}, #{fareEi,jdbcType=VARCHAR}, 
+      #{fareComment,jdbcType=VARCHAR}, #{baggageweifth,jdbcType=DECIMAL}, #{paystatus,jdbcType=CHAR}, 
+      #{payseqno,jdbcType=VARCHAR}, #{dcsstatus,jdbcType=VARCHAR}, #{restatus,jdbcType=CHAR}, 
+      #{dateCreated,jdbcType=TIMESTAMP}, #{whoCreated,jdbcType=VARCHAR}, #{dateModified,jdbcType=TIMESTAMP}, 
+      #{whoModified,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{sex,jdbcType=CHAR}, 
+      #{ffpNo,jdbcType=VARCHAR}, #{ticketNo,jdbcType=VARCHAR}, #{fareCn,jdbcType=DECIMAL}, 
+      #{fareYq,jdbcType=DECIMAL}, #{bank,jdbcType=VARCHAR}, #{bankno,jdbcType=VARCHAR}, 
+      #{ticketNo1,jdbcType=VARCHAR}, #{farePrice1,jdbcType=DECIMAL}, #{fareTax1,jdbcType=DECIMAL}, 
+      #{fareYq1,jdbcType=DECIMAL}, #{bankP,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jiuair.its.domain.OrderPsg">
+    insert into ORDER_PSG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="psgId != null">
+        PSG_ID,
+      </if>
+      <if test="orderId != null">
+        ORDER_ID,
+      </if>
+      <if test="psgType != null">
+        PSG_TYPE,
+      </if>
+      <if test="psgName != null">
+        PSG_NAME,
+      </if>
+      <if test="psgFirstName != null">
+        PSG_FIRST_NAME,
+      </if>
+      <if test="psgLastName != null">
+        PSG_LAST_NAME,
+      </if>
+      <if test="psgMidName != null">
+        PSG_MID_NAME,
+      </if>
+      <if test="psgIdType != null">
+        PSG_ID_TYPE,
+      </if>
+      <if test="psgIdNo != null">
+        PSG_ID_NO,
+      </if>
+      <if test="psgBirthdy != null">
+        PSG_BIRTHDY,
+      </if>
+      <if test="psgPartner != null">
+        PSG_PARTNER,
+      </if>
+      <if test="psgMobilePhone != null">
+        PSG_MOBILE_PHONE,
+      </if>
+      <if test="farePrice != null">
+        FARE_PRICE,
+      </if>
+      <if test="fareTax != null">
+        FARE_TAX,
+      </if>
+      <if test="fareEi != null">
+        FARE_EI,
+      </if>
+      <if test="fareComment != null">
+        FARE_COMMENT,
+      </if>
+      <if test="baggageweifth != null">
+        BAGGAGEWEIFTH,
+      </if>
+      <if test="paystatus != null">
+        PAYSTATUS,
+      </if>
+      <if test="payseqno != null">
+        PAYSEQNO,
+      </if>
+      <if test="dcsstatus != null">
+        DCSSTATUS,
+      </if>
+      <if test="restatus != null">
+        RESTATUS,
+      </if>
+      <if test="dateCreated != null">
+        DATE_CREATED,
+      </if>
+      <if test="whoCreated != null">
+        WHO_CREATED,
+      </if>
+      <if test="dateModified != null">
+        DATE_MODIFIED,
+      </if>
+      <if test="whoModified != null">
+        WHO_MODIFIED,
+      </if>
+      <if test="email != null">
+        EMAIL,
+      </if>
+      <if test="sex != null">
+        SEX,
+      </if>
+      <if test="ffpNo != null">
+        FFP_NO,
+      </if>
+      <if test="ticketNo != null">
+        TICKET_NO,
+      </if>
+      <if test="fareCn != null">
+        FARE_CN,
+      </if>
+      <if test="fareYq != null">
+        FARE_YQ,
+      </if>
+      <if test="bank != null">
+        BANK,
+      </if>
+      <if test="bankno != null">
+        BANKNO,
+      </if>
+      <if test="ticketNo1 != null">
+        TICKET_NO1,
+      </if>
+      <if test="farePrice1 != null">
+        FARE_PRICE1,
+      </if>
+      <if test="fareTax1 != null">
+        FARE_TAX1,
+      </if>
+      <if test="fareYq1 != null">
+        FARE_YQ1,
+      </if>
+      <if test="bankP != null">
+        BANK_P,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="psgId != null">
+        #{psgId,jdbcType=VARCHAR},
+      </if>
+      <if test="orderId != null">
+        #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="psgType != null">
+        #{psgType,jdbcType=VARCHAR},
+      </if>
+      <if test="psgName != null">
+        #{psgName,jdbcType=VARCHAR},
+      </if>
+      <if test="psgFirstName != null">
+        #{psgFirstName,jdbcType=VARCHAR},
+      </if>
+      <if test="psgLastName != null">
+        #{psgLastName,jdbcType=VARCHAR},
+      </if>
+      <if test="psgMidName != null">
+        #{psgMidName,jdbcType=VARCHAR},
+      </if>
+      <if test="psgIdType != null">
+        #{psgIdType,jdbcType=VARCHAR},
+      </if>
+      <if test="psgIdNo != null">
+        #{psgIdNo,jdbcType=VARCHAR},
+      </if>
+      <if test="psgBirthdy != null">
+        #{psgBirthdy,jdbcType=TIMESTAMP},
+      </if>
+      <if test="psgPartner != null">
+        #{psgPartner,jdbcType=VARCHAR},
+      </if>
+      <if test="psgMobilePhone != null">
+        #{psgMobilePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="farePrice != null">
+        #{farePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="fareTax != null">
+        #{fareTax,jdbcType=DECIMAL},
+      </if>
+      <if test="fareEi != null">
+        #{fareEi,jdbcType=VARCHAR},
+      </if>
+      <if test="fareComment != null">
+        #{fareComment,jdbcType=VARCHAR},
+      </if>
+      <if test="baggageweifth != null">
+        #{baggageweifth,jdbcType=DECIMAL},
+      </if>
+      <if test="paystatus != null">
+        #{paystatus,jdbcType=CHAR},
+      </if>
+      <if test="payseqno != null">
+        #{payseqno,jdbcType=VARCHAR},
+      </if>
+      <if test="dcsstatus != null">
+        #{dcsstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="restatus != null">
+        #{restatus,jdbcType=CHAR},
+      </if>
+      <if test="dateCreated != null">
+        #{dateCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="whoCreated != null">
+        #{whoCreated,jdbcType=VARCHAR},
+      </if>
+      <if test="dateModified != null">
+        #{dateModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="whoModified != null">
+        #{whoModified,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=CHAR},
+      </if>
+      <if test="ffpNo != null">
+        #{ffpNo,jdbcType=VARCHAR},
+      </if>
+      <if test="ticketNo != null">
+        #{ticketNo,jdbcType=VARCHAR},
+      </if>
+      <if test="fareCn != null">
+        #{fareCn,jdbcType=DECIMAL},
+      </if>
+      <if test="fareYq != null">
+        #{fareYq,jdbcType=DECIMAL},
+      </if>
+      <if test="bank != null">
+        #{bank,jdbcType=VARCHAR},
+      </if>
+      <if test="bankno != null">
+        #{bankno,jdbcType=VARCHAR},
+      </if>
+      <if test="ticketNo1 != null">
+        #{ticketNo1,jdbcType=VARCHAR},
+      </if>
+      <if test="farePrice1 != null">
+        #{farePrice1,jdbcType=DECIMAL},
+      </if>
+      <if test="fareTax1 != null">
+        #{fareTax1,jdbcType=DECIMAL},
+      </if>
+      <if test="fareYq1 != null">
+        #{fareYq1,jdbcType=DECIMAL},
+      </if>
+      <if test="bankP != null">
+        #{bankP,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jiuair.its.domain.OrderPsg">
+    update ORDER_PSG
+    <set>
+      <if test="orderId != null">
+        ORDER_ID = #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="psgType != null">
+        PSG_TYPE = #{psgType,jdbcType=VARCHAR},
+      </if>
+      <if test="psgName != null">
+        PSG_NAME = #{psgName,jdbcType=VARCHAR},
+      </if>
+      <if test="psgFirstName != null">
+        PSG_FIRST_NAME = #{psgFirstName,jdbcType=VARCHAR},
+      </if>
+      <if test="psgLastName != null">
+        PSG_LAST_NAME = #{psgLastName,jdbcType=VARCHAR},
+      </if>
+      <if test="psgMidName != null">
+        PSG_MID_NAME = #{psgMidName,jdbcType=VARCHAR},
+      </if>
+      <if test="psgIdType != null">
+        PSG_ID_TYPE = #{psgIdType,jdbcType=VARCHAR},
+      </if>
+      <if test="psgIdNo != null">
+        PSG_ID_NO = #{psgIdNo,jdbcType=VARCHAR},
+      </if>
+      <if test="psgBirthdy != null">
+        PSG_BIRTHDY = #{psgBirthdy,jdbcType=TIMESTAMP},
+      </if>
+      <if test="psgPartner != null">
+        PSG_PARTNER = #{psgPartner,jdbcType=VARCHAR},
+      </if>
+      <if test="psgMobilePhone != null">
+        PSG_MOBILE_PHONE = #{psgMobilePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="farePrice != null">
+        FARE_PRICE = #{farePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="fareTax != null">
+        FARE_TAX = #{fareTax,jdbcType=DECIMAL},
+      </if>
+      <if test="fareEi != null">
+        FARE_EI = #{fareEi,jdbcType=VARCHAR},
+      </if>
+      <if test="fareComment != null">
+        FARE_COMMENT = #{fareComment,jdbcType=VARCHAR},
+      </if>
+      <if test="baggageweifth != null">
+        BAGGAGEWEIFTH = #{baggageweifth,jdbcType=DECIMAL},
+      </if>
+      <if test="paystatus != null">
+        PAYSTATUS = #{paystatus,jdbcType=CHAR},
+      </if>
+      <if test="payseqno != null">
+        PAYSEQNO = #{payseqno,jdbcType=VARCHAR},
+      </if>
+      <if test="dcsstatus != null">
+        DCSSTATUS = #{dcsstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="restatus != null">
+        RESTATUS = #{restatus,jdbcType=CHAR},
+      </if>
+      <if test="dateCreated != null">
+        DATE_CREATED = #{dateCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="whoCreated != null">
+        WHO_CREATED = #{whoCreated,jdbcType=VARCHAR},
+      </if>
+      <if test="dateModified != null">
+        DATE_MODIFIED = #{dateModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="whoModified != null">
+        WHO_MODIFIED = #{whoModified,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        SEX = #{sex,jdbcType=CHAR},
+      </if>
+      <if test="ffpNo != null">
+        FFP_NO = #{ffpNo,jdbcType=VARCHAR},
+      </if>
+      <if test="ticketNo != null">
+        TICKET_NO = #{ticketNo,jdbcType=VARCHAR},
+      </if>
+      <if test="fareCn != null">
+        FARE_CN = #{fareCn,jdbcType=DECIMAL},
+      </if>
+      <if test="fareYq != null">
+        FARE_YQ = #{fareYq,jdbcType=DECIMAL},
+      </if>
+      <if test="bank != null">
+        BANK = #{bank,jdbcType=VARCHAR},
+      </if>
+      <if test="bankno != null">
+        BANKNO = #{bankno,jdbcType=VARCHAR},
+      </if>
+      <if test="ticketNo1 != null">
+        TICKET_NO1 = #{ticketNo1,jdbcType=VARCHAR},
+      </if>
+      <if test="farePrice1 != null">
+        FARE_PRICE1 = #{farePrice1,jdbcType=DECIMAL},
+      </if>
+      <if test="fareTax1 != null">
+        FARE_TAX1 = #{fareTax1,jdbcType=DECIMAL},
+      </if>
+      <if test="fareYq1 != null">
+        FARE_YQ1 = #{fareYq1,jdbcType=DECIMAL},
+      </if>
+      <if test="bankP != null">
+        BANK_P = #{bankP,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PSG_ID = #{psgId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jiuair.its.domain.OrderPsg">
+    update ORDER_PSG
+    set ORDER_ID = #{orderId,jdbcType=VARCHAR},
+      PSG_TYPE = #{psgType,jdbcType=VARCHAR},
+      PSG_NAME = #{psgName,jdbcType=VARCHAR},
+      PSG_FIRST_NAME = #{psgFirstName,jdbcType=VARCHAR},
+      PSG_LAST_NAME = #{psgLastName,jdbcType=VARCHAR},
+      PSG_MID_NAME = #{psgMidName,jdbcType=VARCHAR},
+      PSG_ID_TYPE = #{psgIdType,jdbcType=VARCHAR},
+      PSG_ID_NO = #{psgIdNo,jdbcType=VARCHAR},
+      PSG_BIRTHDY = #{psgBirthdy,jdbcType=TIMESTAMP},
+      PSG_PARTNER = #{psgPartner,jdbcType=VARCHAR},
+      PSG_MOBILE_PHONE = #{psgMobilePhone,jdbcType=VARCHAR},
+      FARE_PRICE = #{farePrice,jdbcType=DECIMAL},
+      FARE_TAX = #{fareTax,jdbcType=DECIMAL},
+      FARE_EI = #{fareEi,jdbcType=VARCHAR},
+      FARE_COMMENT = #{fareComment,jdbcType=VARCHAR},
+      BAGGAGEWEIFTH = #{baggageweifth,jdbcType=DECIMAL},
+      PAYSTATUS = #{paystatus,jdbcType=CHAR},
+      PAYSEQNO = #{payseqno,jdbcType=VARCHAR},
+      DCSSTATUS = #{dcsstatus,jdbcType=VARCHAR},
+      RESTATUS = #{restatus,jdbcType=CHAR},
+      DATE_CREATED = #{dateCreated,jdbcType=TIMESTAMP},
+      WHO_CREATED = #{whoCreated,jdbcType=VARCHAR},
+      DATE_MODIFIED = #{dateModified,jdbcType=TIMESTAMP},
+      WHO_MODIFIED = #{whoModified,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      SEX = #{sex,jdbcType=CHAR},
+      FFP_NO = #{ffpNo,jdbcType=VARCHAR},
+      TICKET_NO = #{ticketNo,jdbcType=VARCHAR},
+      FARE_CN = #{fareCn,jdbcType=DECIMAL},
+      FARE_YQ = #{fareYq,jdbcType=DECIMAL},
+      BANK = #{bank,jdbcType=VARCHAR},
+      BANKNO = #{bankno,jdbcType=VARCHAR},
+      TICKET_NO1 = #{ticketNo1,jdbcType=VARCHAR},
+      FARE_PRICE1 = #{farePrice1,jdbcType=DECIMAL},
+      FARE_TAX1 = #{fareTax1,jdbcType=DECIMAL},
+      FARE_YQ1 = #{fareYq1,jdbcType=DECIMAL},
+      BANK_P = #{bankP,jdbcType=VARCHAR}
+    where PSG_ID = #{psgId,jdbcType=VARCHAR}
+  </update>
+</mapper>

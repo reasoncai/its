@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jiuair.its.dao.OrderFlightDao">
+  <resultMap id="BaseResultMap" type="com.jiuair.its.domain.OrderFlightEntity">
+    <id column="SEQ_NO" jdbcType="VARCHAR" property="seqNo" />
+    <result column="ORDER_ID" jdbcType="VARCHAR" property="orderId" />
+    <result column="CARRIER" jdbcType="VARCHAR" property="carrier" />
+    <result column="FLIGHT_NO" jdbcType="VARCHAR" property="flightNo" />
+    <result column="OPERATOR_CARRIER" jdbcType="VARCHAR" property="operatorCarrier" />
+    <result column="OPERATOR_FLGIHT_NO" jdbcType="VARCHAR" property="operatorFlgihtNo" />
+    <result column="DATE_DEPARTURE" jdbcType="TIMESTAMP" property="dateDeparture" />
+    <result column="AVAILABILITY" jdbcType="VARCHAR" property="availability" />
+    <result column="ORI_AIRPORT" jdbcType="CHAR" property="oriAirport" />
+    <result column="DEST_AIRPORT" jdbcType="CHAR" property="destAirport" />
+    <result column="DATE_ARRIVAL" jdbcType="TIMESTAMP" property="dateArrival" />
+    <result column="ORI_TERMINAL" jdbcType="VARCHAR" property="oriTerminal" />
+    <result column="DEST_TERMINAL" jdbcType="VARCHAR" property="destTerminal" />
+    <result column="STOPS" jdbcType="DECIMAL" property="stops" />
+    <result column="MEAL" jdbcType="CHAR" property="meal" />
+    <result column="AIRCAFT_TYPE" jdbcType="VARCHAR" property="aircaftType" />
+    <result column="DATE_CREATED" jdbcType="TIMESTAMP" property="dateCreated" />
+    <result column="WHO_CREATED" jdbcType="VARCHAR" property="whoCreated" />
+    <result column="DATE_MODIFIED" jdbcType="TIMESTAMP" property="dateModified" />
+    <result column="WHO_MODIFIED" jdbcType="VARCHAR" property="whoModified" />
+    <result column="DCS_FLIGHT_ID" jdbcType="VARCHAR" property="dcsFlightId" />
+    <result column="TRAVELDIRECT" jdbcType="CHAR" property="traveldirect" />
+    <result column="RESTATUS" jdbcType="CHAR" property="restatus" />
+    <result column="SERVICETYPE" jdbcType="VARCHAR" property="servicetype" />
+    <result column="FAREBASIS" jdbcType="VARCHAR" property="farebasis" />
+    <result column="TOURCODE" jdbcType="VARCHAR" property="tourcode" />
+    <result column="PRODUCTCODE" jdbcType="VARCHAR" property="productcode" />
+    <result column="STOPAIR" jdbcType="CHAR" property="stopair" />
+    <result column="DATE_STOP_DEP" jdbcType="TIMESTAMP" property="dateStopDep" />
+    <result column="DATE_STOP_ARR" jdbcType="TIMESTAMP" property="dateStopArr" />
+    <result column="STOP_TERMINAL" jdbcType="VARCHAR" property="stopTerminal" />
+    <result column="BAGGAGEWEIFTH" jdbcType="DECIMAL" property="baggageweifth" />
+    <result column="PNR" jdbcType="VARCHAR" property="pnr" />
+    <result column="PNR_ORDER_ID" jdbcType="VARCHAR" property="pnrOrderId" />
+    <result column="OLD_PNRS" jdbcType="VARCHAR" property="oldPnrs" />
+    <result column="OLD_PNR_ORDER_IDS" jdbcType="VARCHAR" property="oldPnrOrderIds" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SEQ_NO, ORDER_ID, CARRIER, FLIGHT_NO, OPERATOR_CARRIER, OPERATOR_FLGIHT_NO, DATE_DEPARTURE, 
+    AVAILABILITY, ORI_AIRPORT, DEST_AIRPORT, DATE_ARRIVAL, ORI_TERMINAL, DEST_TERMINAL, 
+    STOPS, MEAL, AIRCAFT_TYPE, DATE_CREATED, WHO_CREATED, DATE_MODIFIED, WHO_MODIFIED, 
+    DCS_FLIGHT_ID, TRAVELDIRECT, RESTATUS, SERVICETYPE, FAREBASIS, TOURCODE, PRODUCTCODE, 
+    STOPAIR, DATE_STOP_DEP, DATE_STOP_ARR, STOP_TERMINAL, BAGGAGEWEIFTH, PNR, PNR_ORDER_ID, 
+    OLD_PNRS, OLD_PNR_ORDER_IDS
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ORDER_FLIGHT
+    where SEQ_NO = #{seqNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from ORDER_FLIGHT
+    where SEQ_NO = #{seqNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.jiuair.its.domain.OrderFlightEntity">
+    insert into ORDER_FLIGHT (SEQ_NO, ORDER_ID, CARRIER, 
+      FLIGHT_NO, OPERATOR_CARRIER, OPERATOR_FLGIHT_NO, 
+      DATE_DEPARTURE, AVAILABILITY, ORI_AIRPORT, 
+      DEST_AIRPORT, DATE_ARRIVAL, ORI_TERMINAL, 
+      DEST_TERMINAL, STOPS, MEAL, 
+      AIRCAFT_TYPE, DATE_CREATED, WHO_CREATED, 
+      DATE_MODIFIED, WHO_MODIFIED, DCS_FLIGHT_ID, 
+      TRAVELDIRECT, RESTATUS, SERVICETYPE, 
+      FAREBASIS, TOURCODE, PRODUCTCODE, 
+      STOPAIR, DATE_STOP_DEP, DATE_STOP_ARR, 
+      STOP_TERMINAL, BAGGAGEWEIFTH, PNR, 
+      PNR_ORDER_ID, OLD_PNRS, OLD_PNR_ORDER_IDS
+      )
+    values (#{seqNo,jdbcType=VARCHAR}, #{orderId,jdbcType=VARCHAR}, #{carrier,jdbcType=VARCHAR}, 
+      #{flightNo,jdbcType=VARCHAR}, #{operatorCarrier,jdbcType=VARCHAR}, #{operatorFlgihtNo,jdbcType=VARCHAR}, 
+      #{dateDeparture,jdbcType=TIMESTAMP}, #{availability,jdbcType=VARCHAR}, #{oriAirport,jdbcType=CHAR}, 
+      #{destAirport,jdbcType=CHAR}, #{dateArrival,jdbcType=TIMESTAMP}, #{oriTerminal,jdbcType=VARCHAR}, 
+      #{destTerminal,jdbcType=VARCHAR}, #{stops,jdbcType=DECIMAL}, #{meal,jdbcType=CHAR}, 
+      #{aircaftType,jdbcType=VARCHAR}, #{dateCreated,jdbcType=TIMESTAMP}, #{whoCreated,jdbcType=VARCHAR}, 
+      #{dateModified,jdbcType=TIMESTAMP}, #{whoModified,jdbcType=VARCHAR}, #{dcsFlightId,jdbcType=VARCHAR}, 
+      #{traveldirect,jdbcType=CHAR}, #{restatus,jdbcType=CHAR}, #{servicetype,jdbcType=VARCHAR}, 
+      #{farebasis,jdbcType=VARCHAR}, #{tourcode,jdbcType=VARCHAR}, #{productcode,jdbcType=VARCHAR}, 
+      #{stopair,jdbcType=CHAR}, #{dateStopDep,jdbcType=TIMESTAMP}, #{dateStopArr,jdbcType=TIMESTAMP}, 
+      #{stopTerminal,jdbcType=VARCHAR}, #{baggageweifth,jdbcType=DECIMAL}, #{pnr,jdbcType=VARCHAR}, 
+      #{pnrOrderId,jdbcType=VARCHAR}, #{oldPnrs,jdbcType=VARCHAR}, #{oldPnrOrderIds,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.jiuair.its.domain.OrderFlightEntity">
+    insert into ORDER_FLIGHT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="seqNo != null">
+        SEQ_NO,
+      </if>
+      <if test="orderId != null">
+        ORDER_ID,
+      </if>
+      <if test="carrier != null">
+        CARRIER,
+      </if>
+      <if test="flightNo != null">
+        FLIGHT_NO,
+      </if>
+      <if test="operatorCarrier != null">
+        OPERATOR_CARRIER,
+      </if>
+      <if test="operatorFlgihtNo != null">
+        OPERATOR_FLGIHT_NO,
+      </if>
+      <if test="dateDeparture != null">
+        DATE_DEPARTURE,
+      </if>
+      <if test="availability != null">
+        AVAILABILITY,
+      </if>
+      <if test="oriAirport != null">
+        ORI_AIRPORT,
+      </if>
+      <if test="destAirport != null">
+        DEST_AIRPORT,
+      </if>
+      <if test="dateArrival != null">
+        DATE_ARRIVAL,
+      </if>
+      <if test="oriTerminal != null">
+        ORI_TERMINAL,
+      </if>
+      <if test="destTerminal != null">
+        DEST_TERMINAL,
+      </if>
+      <if test="stops != null">
+        STOPS,
+      </if>
+      <if test="meal != null">
+        MEAL,
+      </if>
+      <if test="aircaftType != null">
+        AIRCAFT_TYPE,
+      </if>
+      <if test="dateCreated != null">
+        DATE_CREATED,
+      </if>
+      <if test="whoCreated != null">
+        WHO_CREATED,
+      </if>
+      <if test="dateModified != null">
+        DATE_MODIFIED,
+      </if>
+      <if test="whoModified != null">
+        WHO_MODIFIED,
+      </if>
+      <if test="dcsFlightId != null">
+        DCS_FLIGHT_ID,
+      </if>
+      <if test="traveldirect != null">
+        TRAVELDIRECT,
+      </if>
+      <if test="restatus != null">
+        RESTATUS,
+      </if>
+      <if test="servicetype != null">
+        SERVICETYPE,
+      </if>
+      <if test="farebasis != null">
+        FAREBASIS,
+      </if>
+      <if test="tourcode != null">
+        TOURCODE,
+      </if>
+      <if test="productcode != null">
+        PRODUCTCODE,
+      </if>
+      <if test="stopair != null">
+        STOPAIR,
+      </if>
+      <if test="dateStopDep != null">
+        DATE_STOP_DEP,
+      </if>
+      <if test="dateStopArr != null">
+        DATE_STOP_ARR,
+      </if>
+      <if test="stopTerminal != null">
+        STOP_TERMINAL,
+      </if>
+      <if test="baggageweifth != null">
+        BAGGAGEWEIFTH,
+      </if>
+      <if test="pnr != null">
+        PNR,
+      </if>
+      <if test="pnrOrderId != null">
+        PNR_ORDER_ID,
+      </if>
+      <if test="oldPnrs != null">
+        OLD_PNRS,
+      </if>
+      <if test="oldPnrOrderIds != null">
+        OLD_PNR_ORDER_IDS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="seqNo != null">
+        #{seqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderId != null">
+        #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="carrier != null">
+        #{carrier,jdbcType=VARCHAR},
+      </if>
+      <if test="flightNo != null">
+        #{flightNo,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorCarrier != null">
+        #{operatorCarrier,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorFlgihtNo != null">
+        #{operatorFlgihtNo,jdbcType=VARCHAR},
+      </if>
+      <if test="dateDeparture != null">
+        #{dateDeparture,jdbcType=TIMESTAMP},
+      </if>
+      <if test="availability != null">
+        #{availability,jdbcType=VARCHAR},
+      </if>
+      <if test="oriAirport != null">
+        #{oriAirport,jdbcType=CHAR},
+      </if>
+      <if test="destAirport != null">
+        #{destAirport,jdbcType=CHAR},
+      </if>
+      <if test="dateArrival != null">
+        #{dateArrival,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oriTerminal != null">
+        #{oriTerminal,jdbcType=VARCHAR},
+      </if>
+      <if test="destTerminal != null">
+        #{destTerminal,jdbcType=VARCHAR},
+      </if>
+      <if test="stops != null">
+        #{stops,jdbcType=DECIMAL},
+      </if>
+      <if test="meal != null">
+        #{meal,jdbcType=CHAR},
+      </if>
+      <if test="aircaftType != null">
+        #{aircaftType,jdbcType=VARCHAR},
+      </if>
+      <if test="dateCreated != null">
+        #{dateCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="whoCreated != null">
+        #{whoCreated,jdbcType=VARCHAR},
+      </if>
+      <if test="dateModified != null">
+        #{dateModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="whoModified != null">
+        #{whoModified,jdbcType=VARCHAR},
+      </if>
+      <if test="dcsFlightId != null">
+        #{dcsFlightId,jdbcType=VARCHAR},
+      </if>
+      <if test="traveldirect != null">
+        #{traveldirect,jdbcType=CHAR},
+      </if>
+      <if test="restatus != null">
+        #{restatus,jdbcType=CHAR},
+      </if>
+      <if test="servicetype != null">
+        #{servicetype,jdbcType=VARCHAR},
+      </if>
+      <if test="farebasis != null">
+        #{farebasis,jdbcType=VARCHAR},
+      </if>
+      <if test="tourcode != null">
+        #{tourcode,jdbcType=VARCHAR},
+      </if>
+      <if test="productcode != null">
+        #{productcode,jdbcType=VARCHAR},
+      </if>
+      <if test="stopair != null">
+        #{stopair,jdbcType=CHAR},
+      </if>
+      <if test="dateStopDep != null">
+        #{dateStopDep,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dateStopArr != null">
+        #{dateStopArr,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stopTerminal != null">
+        #{stopTerminal,jdbcType=VARCHAR},
+      </if>
+      <if test="baggageweifth != null">
+        #{baggageweifth,jdbcType=DECIMAL},
+      </if>
+      <if test="pnr != null">
+        #{pnr,jdbcType=VARCHAR},
+      </if>
+      <if test="pnrOrderId != null">
+        #{pnrOrderId,jdbcType=VARCHAR},
+      </if>
+      <if test="oldPnrs != null">
+        #{oldPnrs,jdbcType=VARCHAR},
+      </if>
+      <if test="oldPnrOrderIds != null">
+        #{oldPnrOrderIds,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jiuair.its.domain.OrderFlightEntity">
+    update ORDER_FLIGHT
+    <set>
+      <if test="orderId != null">
+        ORDER_ID = #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="carrier != null">
+        CARRIER = #{carrier,jdbcType=VARCHAR},
+      </if>
+      <if test="flightNo != null">
+        FLIGHT_NO = #{flightNo,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorCarrier != null">
+        OPERATOR_CARRIER = #{operatorCarrier,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorFlgihtNo != null">
+        OPERATOR_FLGIHT_NO = #{operatorFlgihtNo,jdbcType=VARCHAR},
+      </if>
+      <if test="dateDeparture != null">
+        DATE_DEPARTURE = #{dateDeparture,jdbcType=TIMESTAMP},
+      </if>
+      <if test="availability != null">
+        AVAILABILITY = #{availability,jdbcType=VARCHAR},
+      </if>
+      <if test="oriAirport != null">
+        ORI_AIRPORT = #{oriAirport,jdbcType=CHAR},
+      </if>
+      <if test="destAirport != null">
+        DEST_AIRPORT = #{destAirport,jdbcType=CHAR},
+      </if>
+      <if test="dateArrival != null">
+        DATE_ARRIVAL = #{dateArrival,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oriTerminal != null">
+        ORI_TERMINAL = #{oriTerminal,jdbcType=VARCHAR},
+      </if>
+      <if test="destTerminal != null">
+        DEST_TERMINAL = #{destTerminal,jdbcType=VARCHAR},
+      </if>
+      <if test="stops != null">
+        STOPS = #{stops,jdbcType=DECIMAL},
+      </if>
+      <if test="meal != null">
+        MEAL = #{meal,jdbcType=CHAR},
+      </if>
+      <if test="aircaftType != null">
+        AIRCAFT_TYPE = #{aircaftType,jdbcType=VARCHAR},
+      </if>
+      <if test="dateCreated != null">
+        DATE_CREATED = #{dateCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="whoCreated != null">
+        WHO_CREATED = #{whoCreated,jdbcType=VARCHAR},
+      </if>
+      <if test="dateModified != null">
+        DATE_MODIFIED = #{dateModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="whoModified != null">
+        WHO_MODIFIED = #{whoModified,jdbcType=VARCHAR},
+      </if>
+      <if test="dcsFlightId != null">
+        DCS_FLIGHT_ID = #{dcsFlightId,jdbcType=VARCHAR},
+      </if>
+      <if test="traveldirect != null">
+        TRAVELDIRECT = #{traveldirect,jdbcType=CHAR},
+      </if>
+      <if test="restatus != null">
+        RESTATUS = #{restatus,jdbcType=CHAR},
+      </if>
+      <if test="servicetype != null">
+        SERVICETYPE = #{servicetype,jdbcType=VARCHAR},
+      </if>
+      <if test="farebasis != null">
+        FAREBASIS = #{farebasis,jdbcType=VARCHAR},
+      </if>
+      <if test="tourcode != null">
+        TOURCODE = #{tourcode,jdbcType=VARCHAR},
+      </if>
+      <if test="productcode != null">
+        PRODUCTCODE = #{productcode,jdbcType=VARCHAR},
+      </if>
+      <if test="stopair != null">
+        STOPAIR = #{stopair,jdbcType=CHAR},
+      </if>
+      <if test="dateStopDep != null">
+        DATE_STOP_DEP = #{dateStopDep,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dateStopArr != null">
+        DATE_STOP_ARR = #{dateStopArr,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stopTerminal != null">
+        STOP_TERMINAL = #{stopTerminal,jdbcType=VARCHAR},
+      </if>
+      <if test="baggageweifth != null">
+        BAGGAGEWEIFTH = #{baggageweifth,jdbcType=DECIMAL},
+      </if>
+      <if test="pnr != null">
+        PNR = #{pnr,jdbcType=VARCHAR},
+      </if>
+      <if test="pnrOrderId != null">
+        PNR_ORDER_ID = #{pnrOrderId,jdbcType=VARCHAR},
+      </if>
+      <if test="oldPnrs != null">
+        OLD_PNRS = #{oldPnrs,jdbcType=VARCHAR},
+      </if>
+      <if test="oldPnrOrderIds != null">
+        OLD_PNR_ORDER_IDS = #{oldPnrOrderIds,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SEQ_NO = #{seqNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jiuair.its.domain.OrderFlightEntity">
+    update ORDER_FLIGHT
+    set ORDER_ID = #{orderId,jdbcType=VARCHAR},
+      CARRIER = #{carrier,jdbcType=VARCHAR},
+      FLIGHT_NO = #{flightNo,jdbcType=VARCHAR},
+      OPERATOR_CARRIER = #{operatorCarrier,jdbcType=VARCHAR},
+      OPERATOR_FLGIHT_NO = #{operatorFlgihtNo,jdbcType=VARCHAR},
+      DATE_DEPARTURE = #{dateDeparture,jdbcType=TIMESTAMP},
+      AVAILABILITY = #{availability,jdbcType=VARCHAR},
+      ORI_AIRPORT = #{oriAirport,jdbcType=CHAR},
+      DEST_AIRPORT = #{destAirport,jdbcType=CHAR},
+      DATE_ARRIVAL = #{dateArrival,jdbcType=TIMESTAMP},
+      ORI_TERMINAL = #{oriTerminal,jdbcType=VARCHAR},
+      DEST_TERMINAL = #{destTerminal,jdbcType=VARCHAR},
+      STOPS = #{stops,jdbcType=DECIMAL},
+      MEAL = #{meal,jdbcType=CHAR},
+      AIRCAFT_TYPE = #{aircaftType,jdbcType=VARCHAR},
+      DATE_CREATED = #{dateCreated,jdbcType=TIMESTAMP},
+      WHO_CREATED = #{whoCreated,jdbcType=VARCHAR},
+      DATE_MODIFIED = #{dateModified,jdbcType=TIMESTAMP},
+      WHO_MODIFIED = #{whoModified,jdbcType=VARCHAR},
+      DCS_FLIGHT_ID = #{dcsFlightId,jdbcType=VARCHAR},
+      TRAVELDIRECT = #{traveldirect,jdbcType=CHAR},
+      RESTATUS = #{restatus,jdbcType=CHAR},
+      SERVICETYPE = #{servicetype,jdbcType=VARCHAR},
+      FAREBASIS = #{farebasis,jdbcType=VARCHAR},
+      TOURCODE = #{tourcode,jdbcType=VARCHAR},
+      PRODUCTCODE = #{productcode,jdbcType=VARCHAR},
+      STOPAIR = #{stopair,jdbcType=CHAR},
+      DATE_STOP_DEP = #{dateStopDep,jdbcType=TIMESTAMP},
+      DATE_STOP_ARR = #{dateStopArr,jdbcType=TIMESTAMP},
+      STOP_TERMINAL = #{stopTerminal,jdbcType=VARCHAR},
+      BAGGAGEWEIFTH = #{baggageweifth,jdbcType=DECIMAL},
+      PNR = #{pnr,jdbcType=VARCHAR},
+      PNR_ORDER_ID = #{pnrOrderId,jdbcType=VARCHAR},
+      OLD_PNRS = #{oldPnrs,jdbcType=VARCHAR},
+      OLD_PNR_ORDER_IDS = #{oldPnrOrderIds,jdbcType=VARCHAR}
+    where SEQ_NO = #{seqNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

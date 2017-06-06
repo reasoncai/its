@@ -1,0 +1,834 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jiuair.its.dao.OPsgListMapper">
+  <resultMap id="BaseResultMap" type="com.jiuair.its.domain.OPsgListEntity">
+    <id column="O_PSG_SN" jdbcType="VARCHAR" property="oPsgSn" />
+    <result column="O_PSG_NAME" jdbcType="VARCHAR" property="oPsgName" />
+    <result column="O_PSG_NAME_CODE" jdbcType="VARCHAR" property="oPsgNameCode" />
+    <result column="O_PSG_NAME_E" jdbcType="VARCHAR" property="oPsgNameE" />
+    <result column="O_PSG_ID_NO" jdbcType="VARCHAR" property="oPsgIdNo" />
+    <result column="O_PSG_TYPE" jdbcType="CHAR" property="oPsgType" />
+    <result column="O_FLT_CARRIER" jdbcType="CHAR" property="oFltCarrier" />
+    <result column="O_FLT_NO" jdbcType="VARCHAR" property="oFltNo" />
+    <result column="O_FLT_ORG_APT" jdbcType="CHAR" property="oFltOrgApt" />
+    <result column="O_FLT_DST_APT" jdbcType="CHAR" property="oFltDstApt" />
+    <result column="O_FLT_ORG_DATE" jdbcType="TIMESTAMP" property="oFltOrgDate" />
+    <result column="O_FLT_DST_DATA" jdbcType="TIMESTAMP" property="oFltDstData" />
+    <result column="O_FLT_SEG_NO" jdbcType="DECIMAL" property="oFltSegNo" />
+    <result column="O_ET_NO" jdbcType="VARCHAR" property="oEtNo" />
+    <result column="O_ET_ST" jdbcType="VARCHAR" property="oEtSt" />
+    <result column="O_SEAT_CLASS" jdbcType="CHAR" property="oSeatClass" />
+    <result column="O_ET_FAREBASIS" jdbcType="VARCHAR" property="oEtFarebasis" />
+    <result column="O_ICS_NO" jdbcType="VARCHAR" property="oIcsNo" />
+    <result column="O_RES_NO" jdbcType="VARCHAR" property="oResNo" />
+    <result column="O_PSG_GRP_NO" jdbcType="VARCHAR" property="oPsgGrpNo" />
+    <result column="O_ET_FARE" jdbcType="DECIMAL" property="oEtFare" />
+    <result column="O_FUND" jdbcType="DECIMAL" property="oFund" />
+    <result column="O_PUEL" jdbcType="DECIMAL" property="oPuel" />
+    <result column="O_TAXE" jdbcType="DECIMAL" property="oTaxe" />
+    <result column="O_AGENT" jdbcType="VARCHAR" property="oAgent" />
+    <result column="O_PSG_GENDER" jdbcType="VARCHAR" property="oPsgGender" />
+    <result column="O_PSG_SET_NO" jdbcType="VARCHAR" property="oPsgSetNo" />
+    <result column="O_PSG_BRD_NO" jdbcType="DECIMAL" property="oPsgBrdNo" />
+    <result column="O_BAG_NO" jdbcType="DECIMAL" property="oBagNo" />
+    <result column="O_BAG_WET" jdbcType="DECIMAL" property="oBagWet" />
+    <result column="O_PSG_SB_NO" jdbcType="DECIMAL" property="oPsgSbNo" />
+    <result column="O_PSG_REMARK" jdbcType="VARCHAR" property="oPsgRemark" />
+    <result column="O_CHECK_DATE" jdbcType="TIMESTAMP" property="oCheckDate" />
+    <result column="O_CHECK_DATE_C" jdbcType="TIMESTAMP" property="oCheckDateC" />
+    <result column="O_BOARD_DATE" jdbcType="TIMESTAMP" property="oBoardDate" />
+    <result column="O_BOARD_DATE_C" jdbcType="TIMESTAMP" property="oBoardDateC" />
+    <result column="O_BD_STOP" jdbcType="CHAR" property="oBdStop" />
+    <result column="O_PSG_ID_TYPE" jdbcType="VARCHAR" property="oPsgIdType" />
+    <result column="O_PSG_CLS" jdbcType="VARCHAR" property="oPsgCls" />
+    <result column="O_PSG_PARTNER" jdbcType="VARCHAR" property="oPsgPartner" />
+    <result column="O_BAG_FREE" jdbcType="DECIMAL" property="oBagFree" />
+    <result column="O_PSG_SET_NO1" jdbcType="VARCHAR" property="oPsgSetNo1" />
+    <result column="O_AIRC_SET_NO" jdbcType="VARCHAR" property="oAircSetNo" />
+    <result column="O_AIRC_SET_NO1" jdbcType="VARCHAR" property="oAircSetNo1" />
+    <result column="O_PSG_MOBILE" jdbcType="VARCHAR" property="oPsgMobile" />
+    <result column="O_CHECK_PID" jdbcType="VARCHAR" property="oCheckPid" />
+    <result column="O_CHECK_PID_C" jdbcType="VARCHAR" property="oCheckPidC" />
+    <result column="O_BOARD_PID" jdbcType="VARCHAR" property="oBoardPid" />
+    <result column="O_BOARD_PID_C" jdbcType="VARCHAR" property="oBoardPidC" />
+    <result column="O_BAG_WET_MAX" jdbcType="DECIMAL" property="oBagWetMax" />
+    <result column="O_ORDER_PRO" jdbcType="VARCHAR" property="oOrderPro" />
+    <result column="O_ONPLANE" jdbcType="CHAR" property="oOnplane" />
+    <result column="O_ONPLANE_PID" jdbcType="VARCHAR" property="oOnplanePid" />
+    <result column="O_ONPLANE_PID_C" jdbcType="VARCHAR" property="oOnplanePidC" />
+    <result column="O_ONPLANE_DATE" jdbcType="TIMESTAMP" property="oOnplaneDate" />
+    <result column="O_ONPLANE_DATE_C" jdbcType="TIMESTAMP" property="oOnplaneDateC" />
+    <result column="O_DEPLANE" jdbcType="CHAR" property="oDeplane" />
+    <result column="O_DEPLANE_PID" jdbcType="VARCHAR" property="oDeplanePid" />
+    <result column="O_DEPLANE_PID_C" jdbcType="VARCHAR" property="oDeplanePidC" />
+    <result column="O_DEPLANE_DATE" jdbcType="TIMESTAMP" property="oDeplaneDate" />
+    <result column="O_DEPLANE_DATE_C" jdbcType="TIMESTAMP" property="oDeplaneDateC" />
+    <result column="O_ORI_TERMINAL" jdbcType="VARCHAR" property="oOriTerminal" />
+    <result column="O_DEST_TERMINAL" jdbcType="VARCHAR" property="oDestTerminal" />
+    <result column="O_IN_PSG_SN" jdbcType="VARCHAR" property="oInPsgSn" />
+    <result column="O_OUT_PSG_SN" jdbcType="VARCHAR" property="oOutPsgSn" />
+    <result column="O_IS_THROUGH" jdbcType="CHAR" property="oIsThrough" />
+    <result column="OLD_PSG_SN" jdbcType="VARCHAR" property="oldPsgSn" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    O_PSG_SN, O_PSG_NAME, O_PSG_NAME_CODE, O_PSG_NAME_E, O_PSG_ID_NO, O_PSG_TYPE, O_FLT_CARRIER, 
+    O_FLT_NO, O_FLT_ORG_APT, O_FLT_DST_APT, O_FLT_ORG_DATE, O_FLT_DST_DATA, O_FLT_SEG_NO, 
+    O_ET_NO, O_ET_ST, O_SEAT_CLASS, O_ET_FAREBASIS, O_ICS_NO, O_RES_NO, O_PSG_GRP_NO, 
+    O_ET_FARE, O_FUND, O_PUEL, O_TAXE, O_AGENT, O_PSG_GENDER, O_PSG_SET_NO, O_PSG_BRD_NO, 
+    O_BAG_NO, O_BAG_WET, O_PSG_SB_NO, O_PSG_REMARK, O_CHECK_DATE, O_CHECK_DATE_C, O_BOARD_DATE, 
+    O_BOARD_DATE_C, O_BD_STOP, O_PSG_ID_TYPE, O_PSG_CLS, O_PSG_PARTNER, O_BAG_FREE, O_PSG_SET_NO1, 
+    O_AIRC_SET_NO, O_AIRC_SET_NO1, O_PSG_MOBILE, O_CHECK_PID, O_CHECK_PID_C, O_BOARD_PID, 
+    O_BOARD_PID_C, O_BAG_WET_MAX, O_ORDER_PRO, O_ONPLANE, O_ONPLANE_PID, O_ONPLANE_PID_C, 
+    O_ONPLANE_DATE, O_ONPLANE_DATE_C, O_DEPLANE, O_DEPLANE_PID, O_DEPLANE_PID_C, O_DEPLANE_DATE, 
+    O_DEPLANE_DATE_C, O_ORI_TERMINAL, O_DEST_TERMINAL, O_IN_PSG_SN, O_OUT_PSG_SN, O_IS_THROUGH, 
+    OLD_PSG_SN
+  </sql>
+  <update id="changeName">
+    UPDATE o_psg_list
+    SET o_psg_name = #{newName,jdbcType=VARCHAR},
+        o_psg_name_e = #{newNameEn,jdbcType=VARCHAR}
+    WHERE o_psg_sn LIKE concat('%', #{psgId})
+    AND o_psg_name =  #{oldName,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from O_PSG_LIST
+    where O_PSG_SN = #{oPsgSn,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from O_PSG_LIST
+    where O_PSG_SN = #{oPsgSn,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.jiuair.its.domain.OPsgListEntity">
+    insert into O_PSG_LIST (O_PSG_SN, O_PSG_NAME, O_PSG_NAME_CODE, 
+      O_PSG_NAME_E, O_PSG_ID_NO, O_PSG_TYPE, 
+      O_FLT_CARRIER, O_FLT_NO, O_FLT_ORG_APT, 
+      O_FLT_DST_APT, O_FLT_ORG_DATE, O_FLT_DST_DATA, 
+      O_FLT_SEG_NO, O_ET_NO, O_ET_ST, 
+      O_SEAT_CLASS, O_ET_FAREBASIS, O_ICS_NO, 
+      O_RES_NO, O_PSG_GRP_NO, O_ET_FARE, 
+      O_FUND, O_PUEL, O_TAXE, 
+      O_AGENT, O_PSG_GENDER, O_PSG_SET_NO, 
+      O_PSG_BRD_NO, O_BAG_NO, O_BAG_WET, 
+      O_PSG_SB_NO, O_PSG_REMARK, O_CHECK_DATE, 
+      O_CHECK_DATE_C, O_BOARD_DATE, O_BOARD_DATE_C, 
+      O_BD_STOP, O_PSG_ID_TYPE, O_PSG_CLS, 
+      O_PSG_PARTNER, O_BAG_FREE, O_PSG_SET_NO1, 
+      O_AIRC_SET_NO, O_AIRC_SET_NO1, O_PSG_MOBILE, 
+      O_CHECK_PID, O_CHECK_PID_C, O_BOARD_PID, 
+      O_BOARD_PID_C, O_BAG_WET_MAX, O_ORDER_PRO, 
+      O_ONPLANE, O_ONPLANE_PID, O_ONPLANE_PID_C, 
+      O_ONPLANE_DATE, O_ONPLANE_DATE_C, O_DEPLANE, 
+      O_DEPLANE_PID, O_DEPLANE_PID_C, O_DEPLANE_DATE, 
+      O_DEPLANE_DATE_C, O_ORI_TERMINAL, O_DEST_TERMINAL, 
+      O_IN_PSG_SN, O_OUT_PSG_SN, O_IS_THROUGH, 
+      OLD_PSG_SN)
+    values (#{oPsgSn,jdbcType=VARCHAR}, #{oPsgName,jdbcType=VARCHAR}, #{oPsgNameCode,jdbcType=VARCHAR}, 
+      #{oPsgNameE,jdbcType=VARCHAR}, #{oPsgIdNo,jdbcType=VARCHAR}, #{oPsgType,jdbcType=CHAR}, 
+      #{oFltCarrier,jdbcType=CHAR}, #{oFltNo,jdbcType=VARCHAR}, #{oFltOrgApt,jdbcType=CHAR}, 
+      #{oFltDstApt,jdbcType=CHAR}, #{oFltOrgDate,jdbcType=TIMESTAMP}, #{oFltDstData,jdbcType=TIMESTAMP}, 
+      #{oFltSegNo,jdbcType=DECIMAL}, #{oEtNo,jdbcType=VARCHAR}, #{oEtSt,jdbcType=VARCHAR}, 
+      #{oSeatClass,jdbcType=CHAR}, #{oEtFarebasis,jdbcType=VARCHAR}, #{oIcsNo,jdbcType=VARCHAR}, 
+      #{oResNo,jdbcType=VARCHAR}, #{oPsgGrpNo,jdbcType=VARCHAR}, #{oEtFare,jdbcType=DECIMAL}, 
+      #{oFund,jdbcType=DECIMAL}, #{oPuel,jdbcType=DECIMAL}, #{oTaxe,jdbcType=DECIMAL}, 
+      #{oAgent,jdbcType=VARCHAR}, #{oPsgGender,jdbcType=VARCHAR}, #{oPsgSetNo,jdbcType=VARCHAR}, 
+      #{oPsgBrdNo,jdbcType=DECIMAL}, #{oBagNo,jdbcType=DECIMAL}, #{oBagWet,jdbcType=DECIMAL}, 
+      #{oPsgSbNo,jdbcType=DECIMAL}, #{oPsgRemark,jdbcType=VARCHAR}, #{oCheckDate,jdbcType=TIMESTAMP}, 
+      #{oCheckDateC,jdbcType=TIMESTAMP}, #{oBoardDate,jdbcType=TIMESTAMP}, #{oBoardDateC,jdbcType=TIMESTAMP}, 
+      #{oBdStop,jdbcType=CHAR}, #{oPsgIdType,jdbcType=VARCHAR}, #{oPsgCls,jdbcType=VARCHAR}, 
+      #{oPsgPartner,jdbcType=VARCHAR}, #{oBagFree,jdbcType=DECIMAL}, #{oPsgSetNo1,jdbcType=VARCHAR}, 
+      #{oAircSetNo,jdbcType=VARCHAR}, #{oAircSetNo1,jdbcType=VARCHAR}, #{oPsgMobile,jdbcType=VARCHAR}, 
+      #{oCheckPid,jdbcType=VARCHAR}, #{oCheckPidC,jdbcType=VARCHAR}, #{oBoardPid,jdbcType=VARCHAR}, 
+      #{oBoardPidC,jdbcType=VARCHAR}, #{oBagWetMax,jdbcType=DECIMAL}, #{oOrderPro,jdbcType=VARCHAR}, 
+      #{oOnplane,jdbcType=CHAR}, #{oOnplanePid,jdbcType=VARCHAR}, #{oOnplanePidC,jdbcType=VARCHAR}, 
+      #{oOnplaneDate,jdbcType=TIMESTAMP}, #{oOnplaneDateC,jdbcType=TIMESTAMP}, #{oDeplane,jdbcType=CHAR}, 
+      #{oDeplanePid,jdbcType=VARCHAR}, #{oDeplanePidC,jdbcType=VARCHAR}, #{oDeplaneDate,jdbcType=TIMESTAMP}, 
+      #{oDeplaneDateC,jdbcType=TIMESTAMP}, #{oOriTerminal,jdbcType=VARCHAR}, #{oDestTerminal,jdbcType=VARCHAR}, 
+      #{oInPsgSn,jdbcType=VARCHAR}, #{oOutPsgSn,jdbcType=VARCHAR}, #{oIsThrough,jdbcType=CHAR}, 
+      #{oldPsgSn,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jiuair.its.domain.OPsgListEntity">
+    insert into O_PSG_LIST
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="oPsgSn != null">
+        O_PSG_SN,
+      </if>
+      <if test="oPsgName != null">
+        O_PSG_NAME,
+      </if>
+      <if test="oPsgNameCode != null">
+        O_PSG_NAME_CODE,
+      </if>
+      <if test="oPsgNameE != null">
+        O_PSG_NAME_E,
+      </if>
+      <if test="oPsgIdNo != null">
+        O_PSG_ID_NO,
+      </if>
+      <if test="oPsgType != null">
+        O_PSG_TYPE,
+      </if>
+      <if test="oFltCarrier != null">
+        O_FLT_CARRIER,
+      </if>
+      <if test="oFltNo != null">
+        O_FLT_NO,
+      </if>
+      <if test="oFltOrgApt != null">
+        O_FLT_ORG_APT,
+      </if>
+      <if test="oFltDstApt != null">
+        O_FLT_DST_APT,
+      </if>
+      <if test="oFltOrgDate != null">
+        O_FLT_ORG_DATE,
+      </if>
+      <if test="oFltDstData != null">
+        O_FLT_DST_DATA,
+      </if>
+      <if test="oFltSegNo != null">
+        O_FLT_SEG_NO,
+      </if>
+      <if test="oEtNo != null">
+        O_ET_NO,
+      </if>
+      <if test="oEtSt != null">
+        O_ET_ST,
+      </if>
+      <if test="oSeatClass != null">
+        O_SEAT_CLASS,
+      </if>
+      <if test="oEtFarebasis != null">
+        O_ET_FAREBASIS,
+      </if>
+      <if test="oIcsNo != null">
+        O_ICS_NO,
+      </if>
+      <if test="oResNo != null">
+        O_RES_NO,
+      </if>
+      <if test="oPsgGrpNo != null">
+        O_PSG_GRP_NO,
+      </if>
+      <if test="oEtFare != null">
+        O_ET_FARE,
+      </if>
+      <if test="oFund != null">
+        O_FUND,
+      </if>
+      <if test="oPuel != null">
+        O_PUEL,
+      </if>
+      <if test="oTaxe != null">
+        O_TAXE,
+      </if>
+      <if test="oAgent != null">
+        O_AGENT,
+      </if>
+      <if test="oPsgGender != null">
+        O_PSG_GENDER,
+      </if>
+      <if test="oPsgSetNo != null">
+        O_PSG_SET_NO,
+      </if>
+      <if test="oPsgBrdNo != null">
+        O_PSG_BRD_NO,
+      </if>
+      <if test="oBagNo != null">
+        O_BAG_NO,
+      </if>
+      <if test="oBagWet != null">
+        O_BAG_WET,
+      </if>
+      <if test="oPsgSbNo != null">
+        O_PSG_SB_NO,
+      </if>
+      <if test="oPsgRemark != null">
+        O_PSG_REMARK,
+      </if>
+      <if test="oCheckDate != null">
+        O_CHECK_DATE,
+      </if>
+      <if test="oCheckDateC != null">
+        O_CHECK_DATE_C,
+      </if>
+      <if test="oBoardDate != null">
+        O_BOARD_DATE,
+      </if>
+      <if test="oBoardDateC != null">
+        O_BOARD_DATE_C,
+      </if>
+      <if test="oBdStop != null">
+        O_BD_STOP,
+      </if>
+      <if test="oPsgIdType != null">
+        O_PSG_ID_TYPE,
+      </if>
+      <if test="oPsgCls != null">
+        O_PSG_CLS,
+      </if>
+      <if test="oPsgPartner != null">
+        O_PSG_PARTNER,
+      </if>
+      <if test="oBagFree != null">
+        O_BAG_FREE,
+      </if>
+      <if test="oPsgSetNo1 != null">
+        O_PSG_SET_NO1,
+      </if>
+      <if test="oAircSetNo != null">
+        O_AIRC_SET_NO,
+      </if>
+      <if test="oAircSetNo1 != null">
+        O_AIRC_SET_NO1,
+      </if>
+      <if test="oPsgMobile != null">
+        O_PSG_MOBILE,
+      </if>
+      <if test="oCheckPid != null">
+        O_CHECK_PID,
+      </if>
+      <if test="oCheckPidC != null">
+        O_CHECK_PID_C,
+      </if>
+      <if test="oBoardPid != null">
+        O_BOARD_PID,
+      </if>
+      <if test="oBoardPidC != null">
+        O_BOARD_PID_C,
+      </if>
+      <if test="oBagWetMax != null">
+        O_BAG_WET_MAX,
+      </if>
+      <if test="oOrderPro != null">
+        O_ORDER_PRO,
+      </if>
+      <if test="oOnplane != null">
+        O_ONPLANE,
+      </if>
+      <if test="oOnplanePid != null">
+        O_ONPLANE_PID,
+      </if>
+      <if test="oOnplanePidC != null">
+        O_ONPLANE_PID_C,
+      </if>
+      <if test="oOnplaneDate != null">
+        O_ONPLANE_DATE,
+      </if>
+      <if test="oOnplaneDateC != null">
+        O_ONPLANE_DATE_C,
+      </if>
+      <if test="oDeplane != null">
+        O_DEPLANE,
+      </if>
+      <if test="oDeplanePid != null">
+        O_DEPLANE_PID,
+      </if>
+      <if test="oDeplanePidC != null">
+        O_DEPLANE_PID_C,
+      </if>
+      <if test="oDeplaneDate != null">
+        O_DEPLANE_DATE,
+      </if>
+      <if test="oDeplaneDateC != null">
+        O_DEPLANE_DATE_C,
+      </if>
+      <if test="oOriTerminal != null">
+        O_ORI_TERMINAL,
+      </if>
+      <if test="oDestTerminal != null">
+        O_DEST_TERMINAL,
+      </if>
+      <if test="oInPsgSn != null">
+        O_IN_PSG_SN,
+      </if>
+      <if test="oOutPsgSn != null">
+        O_OUT_PSG_SN,
+      </if>
+      <if test="oIsThrough != null">
+        O_IS_THROUGH,
+      </if>
+      <if test="oldPsgSn != null">
+        OLD_PSG_SN,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="oPsgSn != null">
+        #{oPsgSn,jdbcType=VARCHAR},
+      </if>
+      <if test="oPsgName != null">
+        #{oPsgName,jdbcType=VARCHAR},
+      </if>
+      <if test="oPsgNameCode != null">
+        #{oPsgNameCode,jdbcType=VARCHAR},
+      </if>
+      <if test="oPsgNameE != null">
+        #{oPsgNameE,jdbcType=VARCHAR},
+      </if>
+      <if test="oPsgIdNo != null">
+        #{oPsgIdNo,jdbcType=VARCHAR},
+      </if>
+      <if test="oPsgType != null">
+        #{oPsgType,jdbcType=CHAR},
+      </if>
+      <if test="oFltCarrier != null">
+        #{oFltCarrier,jdbcType=CHAR},
+      </if>
+      <if test="oFltNo != null">
+        #{oFltNo,jdbcType=VARCHAR},
+      </if>
+      <if test="oFltOrgApt != null">
+        #{oFltOrgApt,jdbcType=CHAR},
+      </if>
+      <if test="oFltDstApt != null">
+        #{oFltDstApt,jdbcType=CHAR},
+      </if>
+      <if test="oFltOrgDate != null">
+        #{oFltOrgDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oFltDstData != null">
+        #{oFltDstData,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oFltSegNo != null">
+        #{oFltSegNo,jdbcType=DECIMAL},
+      </if>
+      <if test="oEtNo != null">
+        #{oEtNo,jdbcType=VARCHAR},
+      </if>
+      <if test="oEtSt != null">
+        #{oEtSt,jdbcType=VARCHAR},
+      </if>
+      <if test="oSeatClass != null">
+        #{oSeatClass,jdbcType=CHAR},
+      </if>
+      <if test="oEtFarebasis != null">
+        #{oEtFarebasis,jdbcType=VARCHAR},
+      </if>
+      <if test="oIcsNo != null">
+        #{oIcsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="oResNo != null">
+        #{oResNo,jdbcType=VARCHAR},
+      </if>
+      <if test="oPsgGrpNo != null">
+        #{oPsgGrpNo,jdbcType=VARCHAR},
+      </if>
+      <if test="oEtFare != null">
+        #{oEtFare,jdbcType=DECIMAL},
+      </if>
+      <if test="oFund != null">
+        #{oFund,jdbcType=DECIMAL},
+      </if>
+      <if test="oPuel != null">
+        #{oPuel,jdbcType=DECIMAL},
+      </if>
+      <if test="oTaxe != null">
+        #{oTaxe,jdbcType=DECIMAL},
+      </if>
+      <if test="oAgent != null">
+        #{oAgent,jdbcType=VARCHAR},
+      </if>
+      <if test="oPsgGender != null">
+        #{oPsgGender,jdbcType=VARCHAR},
+      </if>
+      <if test="oPsgSetNo != null">
+        #{oPsgSetNo,jdbcType=VARCHAR},
+      </if>
+      <if test="oPsgBrdNo != null">
+        #{oPsgBrdNo,jdbcType=DECIMAL},
+      </if>
+      <if test="oBagNo != null">
+        #{oBagNo,jdbcType=DECIMAL},
+      </if>
+      <if test="oBagWet != null">
+        #{oBagWet,jdbcType=DECIMAL},
+      </if>
+      <if test="oPsgSbNo != null">
+        #{oPsgSbNo,jdbcType=DECIMAL},
+      </if>
+      <if test="oPsgRemark != null">
+        #{oPsgRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="oCheckDate != null">
+        #{oCheckDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oCheckDateC != null">
+        #{oCheckDateC,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oBoardDate != null">
+        #{oBoardDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oBoardDateC != null">
+        #{oBoardDateC,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oBdStop != null">
+        #{oBdStop,jdbcType=CHAR},
+      </if>
+      <if test="oPsgIdType != null">
+        #{oPsgIdType,jdbcType=VARCHAR},
+      </if>
+      <if test="oPsgCls != null">
+        #{oPsgCls,jdbcType=VARCHAR},
+      </if>
+      <if test="oPsgPartner != null">
+        #{oPsgPartner,jdbcType=VARCHAR},
+      </if>
+      <if test="oBagFree != null">
+        #{oBagFree,jdbcType=DECIMAL},
+      </if>
+      <if test="oPsgSetNo1 != null">
+        #{oPsgSetNo1,jdbcType=VARCHAR},
+      </if>
+      <if test="oAircSetNo != null">
+        #{oAircSetNo,jdbcType=VARCHAR},
+      </if>
+      <if test="oAircSetNo1 != null">
+        #{oAircSetNo1,jdbcType=VARCHAR},
+      </if>
+      <if test="oPsgMobile != null">
+        #{oPsgMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="oCheckPid != null">
+        #{oCheckPid,jdbcType=VARCHAR},
+      </if>
+      <if test="oCheckPidC != null">
+        #{oCheckPidC,jdbcType=VARCHAR},
+      </if>
+      <if test="oBoardPid != null">
+        #{oBoardPid,jdbcType=VARCHAR},
+      </if>
+      <if test="oBoardPidC != null">
+        #{oBoardPidC,jdbcType=VARCHAR},
+      </if>
+      <if test="oBagWetMax != null">
+        #{oBagWetMax,jdbcType=DECIMAL},
+      </if>
+      <if test="oOrderPro != null">
+        #{oOrderPro,jdbcType=VARCHAR},
+      </if>
+      <if test="oOnplane != null">
+        #{oOnplane,jdbcType=CHAR},
+      </if>
+      <if test="oOnplanePid != null">
+        #{oOnplanePid,jdbcType=VARCHAR},
+      </if>
+      <if test="oOnplanePidC != null">
+        #{oOnplanePidC,jdbcType=VARCHAR},
+      </if>
+      <if test="oOnplaneDate != null">
+        #{oOnplaneDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oOnplaneDateC != null">
+        #{oOnplaneDateC,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oDeplane != null">
+        #{oDeplane,jdbcType=CHAR},
+      </if>
+      <if test="oDeplanePid != null">
+        #{oDeplanePid,jdbcType=VARCHAR},
+      </if>
+      <if test="oDeplanePidC != null">
+        #{oDeplanePidC,jdbcType=VARCHAR},
+      </if>
+      <if test="oDeplaneDate != null">
+        #{oDeplaneDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oDeplaneDateC != null">
+        #{oDeplaneDateC,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oOriTerminal != null">
+        #{oOriTerminal,jdbcType=VARCHAR},
+      </if>
+      <if test="oDestTerminal != null">
+        #{oDestTerminal,jdbcType=VARCHAR},
+      </if>
+      <if test="oInPsgSn != null">
+        #{oInPsgSn,jdbcType=VARCHAR},
+      </if>
+      <if test="oOutPsgSn != null">
+        #{oOutPsgSn,jdbcType=VARCHAR},
+      </if>
+      <if test="oIsThrough != null">
+        #{oIsThrough,jdbcType=CHAR},
+      </if>
+      <if test="oldPsgSn != null">
+        #{oldPsgSn,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jiuair.its.domain.OPsgListEntity">
+    update O_PSG_LIST
+    <set>
+      <if test="oPsgName != null">
+        O_PSG_NAME = #{oPsgName,jdbcType=VARCHAR},
+      </if>
+      <if test="oPsgNameCode != null">
+        O_PSG_NAME_CODE = #{oPsgNameCode,jdbcType=VARCHAR},
+      </if>
+      <if test="oPsgNameE != null">
+        O_PSG_NAME_E = #{oPsgNameE,jdbcType=VARCHAR},
+      </if>
+      <if test="oPsgIdNo != null">
+        O_PSG_ID_NO = #{oPsgIdNo,jdbcType=VARCHAR},
+      </if>
+      <if test="oPsgType != null">
+        O_PSG_TYPE = #{oPsgType,jdbcType=CHAR},
+      </if>
+      <if test="oFltCarrier != null">
+        O_FLT_CARRIER = #{oFltCarrier,jdbcType=CHAR},
+      </if>
+      <if test="oFltNo != null">
+        O_FLT_NO = #{oFltNo,jdbcType=VARCHAR},
+      </if>
+      <if test="oFltOrgApt != null">
+        O_FLT_ORG_APT = #{oFltOrgApt,jdbcType=CHAR},
+      </if>
+      <if test="oFltDstApt != null">
+        O_FLT_DST_APT = #{oFltDstApt,jdbcType=CHAR},
+      </if>
+      <if test="oFltOrgDate != null">
+        O_FLT_ORG_DATE = #{oFltOrgDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oFltDstData != null">
+        O_FLT_DST_DATA = #{oFltDstData,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oFltSegNo != null">
+        O_FLT_SEG_NO = #{oFltSegNo,jdbcType=DECIMAL},
+      </if>
+      <if test="oEtNo != null">
+        O_ET_NO = #{oEtNo,jdbcType=VARCHAR},
+      </if>
+      <if test="oEtSt != null">
+        O_ET_ST = #{oEtSt,jdbcType=VARCHAR},
+      </if>
+      <if test="oSeatClass != null">
+        O_SEAT_CLASS = #{oSeatClass,jdbcType=CHAR},
+      </if>
+      <if test="oEtFarebasis != null">
+        O_ET_FAREBASIS = #{oEtFarebasis,jdbcType=VARCHAR},
+      </if>
+      <if test="oIcsNo != null">
+        O_ICS_NO = #{oIcsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="oResNo != null">
+        O_RES_NO = #{oResNo,jdbcType=VARCHAR},
+      </if>
+      <if test="oPsgGrpNo != null">
+        O_PSG_GRP_NO = #{oPsgGrpNo,jdbcType=VARCHAR},
+      </if>
+      <if test="oEtFare != null">
+        O_ET_FARE = #{oEtFare,jdbcType=DECIMAL},
+      </if>
+      <if test="oFund != null">
+        O_FUND = #{oFund,jdbcType=DECIMAL},
+      </if>
+      <if test="oPuel != null">
+        O_PUEL = #{oPuel,jdbcType=DECIMAL},
+      </if>
+      <if test="oTaxe != null">
+        O_TAXE = #{oTaxe,jdbcType=DECIMAL},
+      </if>
+      <if test="oAgent != null">
+        O_AGENT = #{oAgent,jdbcType=VARCHAR},
+      </if>
+      <if test="oPsgGender != null">
+        O_PSG_GENDER = #{oPsgGender,jdbcType=VARCHAR},
+      </if>
+      <if test="oPsgSetNo != null">
+        O_PSG_SET_NO = #{oPsgSetNo,jdbcType=VARCHAR},
+      </if>
+      <if test="oPsgBrdNo != null">
+        O_PSG_BRD_NO = #{oPsgBrdNo,jdbcType=DECIMAL},
+      </if>
+      <if test="oBagNo != null">
+        O_BAG_NO = #{oBagNo,jdbcType=DECIMAL},
+      </if>
+      <if test="oBagWet != null">
+        O_BAG_WET = #{oBagWet,jdbcType=DECIMAL},
+      </if>
+      <if test="oPsgSbNo != null">
+        O_PSG_SB_NO = #{oPsgSbNo,jdbcType=DECIMAL},
+      </if>
+      <if test="oPsgRemark != null">
+        O_PSG_REMARK = #{oPsgRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="oCheckDate != null">
+        O_CHECK_DATE = #{oCheckDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oCheckDateC != null">
+        O_CHECK_DATE_C = #{oCheckDateC,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oBoardDate != null">
+        O_BOARD_DATE = #{oBoardDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oBoardDateC != null">
+        O_BOARD_DATE_C = #{oBoardDateC,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oBdStop != null">
+        O_BD_STOP = #{oBdStop,jdbcType=CHAR},
+      </if>
+      <if test="oPsgIdType != null">
+        O_PSG_ID_TYPE = #{oPsgIdType,jdbcType=VARCHAR},
+      </if>
+      <if test="oPsgCls != null">
+        O_PSG_CLS = #{oPsgCls,jdbcType=VARCHAR},
+      </if>
+      <if test="oPsgPartner != null">
+        O_PSG_PARTNER = #{oPsgPartner,jdbcType=VARCHAR},
+      </if>
+      <if test="oBagFree != null">
+        O_BAG_FREE = #{oBagFree,jdbcType=DECIMAL},
+      </if>
+      <if test="oPsgSetNo1 != null">
+        O_PSG_SET_NO1 = #{oPsgSetNo1,jdbcType=VARCHAR},
+      </if>
+      <if test="oAircSetNo != null">
+        O_AIRC_SET_NO = #{oAircSetNo,jdbcType=VARCHAR},
+      </if>
+      <if test="oAircSetNo1 != null">
+        O_AIRC_SET_NO1 = #{oAircSetNo1,jdbcType=VARCHAR},
+      </if>
+      <if test="oPsgMobile != null">
+        O_PSG_MOBILE = #{oPsgMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="oCheckPid != null">
+        O_CHECK_PID = #{oCheckPid,jdbcType=VARCHAR},
+      </if>
+      <if test="oCheckPidC != null">
+        O_CHECK_PID_C = #{oCheckPidC,jdbcType=VARCHAR},
+      </if>
+      <if test="oBoardPid != null">
+        O_BOARD_PID = #{oBoardPid,jdbcType=VARCHAR},
+      </if>
+      <if test="oBoardPidC != null">
+        O_BOARD_PID_C = #{oBoardPidC,jdbcType=VARCHAR},
+      </if>
+      <if test="oBagWetMax != null">
+        O_BAG_WET_MAX = #{oBagWetMax,jdbcType=DECIMAL},
+      </if>
+      <if test="oOrderPro != null">
+        O_ORDER_PRO = #{oOrderPro,jdbcType=VARCHAR},
+      </if>
+      <if test="oOnplane != null">
+        O_ONPLANE = #{oOnplane,jdbcType=CHAR},
+      </if>
+      <if test="oOnplanePid != null">
+        O_ONPLANE_PID = #{oOnplanePid,jdbcType=VARCHAR},
+      </if>
+      <if test="oOnplanePidC != null">
+        O_ONPLANE_PID_C = #{oOnplanePidC,jdbcType=VARCHAR},
+      </if>
+      <if test="oOnplaneDate != null">
+        O_ONPLANE_DATE = #{oOnplaneDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oOnplaneDateC != null">
+        O_ONPLANE_DATE_C = #{oOnplaneDateC,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oDeplane != null">
+        O_DEPLANE = #{oDeplane,jdbcType=CHAR},
+      </if>
+      <if test="oDeplanePid != null">
+        O_DEPLANE_PID = #{oDeplanePid,jdbcType=VARCHAR},
+      </if>
+      <if test="oDeplanePidC != null">
+        O_DEPLANE_PID_C = #{oDeplanePidC,jdbcType=VARCHAR},
+      </if>
+      <if test="oDeplaneDate != null">
+        O_DEPLANE_DATE = #{oDeplaneDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oDeplaneDateC != null">
+        O_DEPLANE_DATE_C = #{oDeplaneDateC,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oOriTerminal != null">
+        O_ORI_TERMINAL = #{oOriTerminal,jdbcType=VARCHAR},
+      </if>
+      <if test="oDestTerminal != null">
+        O_DEST_TERMINAL = #{oDestTerminal,jdbcType=VARCHAR},
+      </if>
+      <if test="oInPsgSn != null">
+        O_IN_PSG_SN = #{oInPsgSn,jdbcType=VARCHAR},
+      </if>
+      <if test="oOutPsgSn != null">
+        O_OUT_PSG_SN = #{oOutPsgSn,jdbcType=VARCHAR},
+      </if>
+      <if test="oIsThrough != null">
+        O_IS_THROUGH = #{oIsThrough,jdbcType=CHAR},
+      </if>
+      <if test="oldPsgSn != null">
+        OLD_PSG_SN = #{oldPsgSn,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where O_PSG_SN = #{oPsgSn,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jiuair.its.domain.OPsgListEntity">
+    update O_PSG_LIST
+    set O_PSG_NAME = #{oPsgName,jdbcType=VARCHAR},
+      O_PSG_NAME_CODE = #{oPsgNameCode,jdbcType=VARCHAR},
+      O_PSG_NAME_E = #{oPsgNameE,jdbcType=VARCHAR},
+      O_PSG_ID_NO = #{oPsgIdNo,jdbcType=VARCHAR},
+      O_PSG_TYPE = #{oPsgType,jdbcType=CHAR},
+      O_FLT_CARRIER = #{oFltCarrier,jdbcType=CHAR},
+      O_FLT_NO = #{oFltNo,jdbcType=VARCHAR},
+      O_FLT_ORG_APT = #{oFltOrgApt,jdbcType=CHAR},
+      O_FLT_DST_APT = #{oFltDstApt,jdbcType=CHAR},
+      O_FLT_ORG_DATE = #{oFltOrgDate,jdbcType=TIMESTAMP},
+      O_FLT_DST_DATA = #{oFltDstData,jdbcType=TIMESTAMP},
+      O_FLT_SEG_NO = #{oFltSegNo,jdbcType=DECIMAL},
+      O_ET_NO = #{oEtNo,jdbcType=VARCHAR},
+      O_ET_ST = #{oEtSt,jdbcType=VARCHAR},
+      O_SEAT_CLASS = #{oSeatClass,jdbcType=CHAR},
+      O_ET_FAREBASIS = #{oEtFarebasis,jdbcType=VARCHAR},
+      O_ICS_NO = #{oIcsNo,jdbcType=VARCHAR},
+      O_RES_NO = #{oResNo,jdbcType=VARCHAR},
+      O_PSG_GRP_NO = #{oPsgGrpNo,jdbcType=VARCHAR},
+      O_ET_FARE = #{oEtFare,jdbcType=DECIMAL},
+      O_FUND = #{oFund,jdbcType=DECIMAL},
+      O_PUEL = #{oPuel,jdbcType=DECIMAL},
+      O_TAXE = #{oTaxe,jdbcType=DECIMAL},
+      O_AGENT = #{oAgent,jdbcType=VARCHAR},
+      O_PSG_GENDER = #{oPsgGender,jdbcType=VARCHAR},
+      O_PSG_SET_NO = #{oPsgSetNo,jdbcType=VARCHAR},
+      O_PSG_BRD_NO = #{oPsgBrdNo,jdbcType=DECIMAL},
+      O_BAG_NO = #{oBagNo,jdbcType=DECIMAL},
+      O_BAG_WET = #{oBagWet,jdbcType=DECIMAL},
+      O_PSG_SB_NO = #{oPsgSbNo,jdbcType=DECIMAL},
+      O_PSG_REMARK = #{oPsgRemark,jdbcType=VARCHAR},
+      O_CHECK_DATE = #{oCheckDate,jdbcType=TIMESTAMP},
+      O_CHECK_DATE_C = #{oCheckDateC,jdbcType=TIMESTAMP},
+      O_BOARD_DATE = #{oBoardDate,jdbcType=TIMESTAMP},
+      O_BOARD_DATE_C = #{oBoardDateC,jdbcType=TIMESTAMP},
+      O_BD_STOP = #{oBdStop,jdbcType=CHAR},
+      O_PSG_ID_TYPE = #{oPsgIdType,jdbcType=VARCHAR},
+      O_PSG_CLS = #{oPsgCls,jdbcType=VARCHAR},
+      O_PSG_PARTNER = #{oPsgPartner,jdbcType=VARCHAR},
+      O_BAG_FREE = #{oBagFree,jdbcType=DECIMAL},
+      O_PSG_SET_NO1 = #{oPsgSetNo1,jdbcType=VARCHAR},
+      O_AIRC_SET_NO = #{oAircSetNo,jdbcType=VARCHAR},
+      O_AIRC_SET_NO1 = #{oAircSetNo1,jdbcType=VARCHAR},
+      O_PSG_MOBILE = #{oPsgMobile,jdbcType=VARCHAR},
+      O_CHECK_PID = #{oCheckPid,jdbcType=VARCHAR},
+      O_CHECK_PID_C = #{oCheckPidC,jdbcType=VARCHAR},
+      O_BOARD_PID = #{oBoardPid,jdbcType=VARCHAR},
+      O_BOARD_PID_C = #{oBoardPidC,jdbcType=VARCHAR},
+      O_BAG_WET_MAX = #{oBagWetMax,jdbcType=DECIMAL},
+      O_ORDER_PRO = #{oOrderPro,jdbcType=VARCHAR},
+      O_ONPLANE = #{oOnplane,jdbcType=CHAR},
+      O_ONPLANE_PID = #{oOnplanePid,jdbcType=VARCHAR},
+      O_ONPLANE_PID_C = #{oOnplanePidC,jdbcType=VARCHAR},
+      O_ONPLANE_DATE = #{oOnplaneDate,jdbcType=TIMESTAMP},
+      O_ONPLANE_DATE_C = #{oOnplaneDateC,jdbcType=TIMESTAMP},
+      O_DEPLANE = #{oDeplane,jdbcType=CHAR},
+      O_DEPLANE_PID = #{oDeplanePid,jdbcType=VARCHAR},
+      O_DEPLANE_PID_C = #{oDeplanePidC,jdbcType=VARCHAR},
+      O_DEPLANE_DATE = #{oDeplaneDate,jdbcType=TIMESTAMP},
+      O_DEPLANE_DATE_C = #{oDeplaneDateC,jdbcType=TIMESTAMP},
+      O_ORI_TERMINAL = #{oOriTerminal,jdbcType=VARCHAR},
+      O_DEST_TERMINAL = #{oDestTerminal,jdbcType=VARCHAR},
+      O_IN_PSG_SN = #{oInPsgSn,jdbcType=VARCHAR},
+      O_OUT_PSG_SN = #{oOutPsgSn,jdbcType=VARCHAR},
+      O_IS_THROUGH = #{oIsThrough,jdbcType=CHAR},
+      OLD_PSG_SN = #{oldPsgSn,jdbcType=VARCHAR}
+    where O_PSG_SN = #{oPsgSn,jdbcType=VARCHAR}
+  </update>
+</mapper>

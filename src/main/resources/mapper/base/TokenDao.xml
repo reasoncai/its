@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.jiuair.dao.base.TokenDao">
+<mapper namespace="com.jiuair.base.dao.TokenDao">
 
-	<select id="queryByUserId" resultType="com.jiuair.entity.TokenEntity">
+	<select id="queryByUserId" resultType="com.jiuair.base.entity.TokenEntity">
 		select * from tb_token where user_id = #{value}
 	</select>
 
-	<select id="queryByToken" resultType="com.jiuair.entity.TokenEntity">
+	<select id="queryByToken" resultType="com.jiuair.base.entity.TokenEntity">
 		select * from tb_token where token = #{value}
 	</select>
 	 
-	<insert id="save" parameterType="com.jiuair.entity.TokenEntity">
+	<insert id="save" parameterType="com.jiuair.base.entity.TokenEntity">
 		insert into tb_token
 		(
 			`user_id`, 
@@ -28,7 +28,7 @@
 		)
 	</insert>
 	 
-	<update id="update" parameterType="com.jiuair.entity.TokenEntity">
+	<update id="update" parameterType="com.jiuair.base.entity.TokenEntity">
 		update tb_token 
 		<set>
 			<if test="token != null">`token` = #{token}, </if>

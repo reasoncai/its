@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.jiuair.dao.base.ScheduleJobLogDao">
-	<select id="queryObject" resultType="com.jiuair.entity.ScheduleJobLogEntity" >
+<mapper namespace="com.jiuair.base.dao.ScheduleJobLogDao">
+	<select id="queryObject" resultType="com.jiuair.base.entity.ScheduleJobLogEntity" >
 		select * from schedule_job_log where log_id = #{value}
 	</select> 
 
-	<select id="queryList" resultType="com.jiuair.entity.ScheduleJobLogEntity" >
+	<select id="queryList" resultType="com.jiuair.base.entity.ScheduleJobLogEntity" >
 		select * from schedule_job_log 
 		<where>
 			<if test="jobId != null">
@@ -28,7 +28,7 @@
 		</where>
 	</select>
 	 
-	<insert id="save" parameterType="com.jiuair.entity.ScheduleJobLogEntity">
+	<insert id="save" parameterType="com.jiuair.base.entity.ScheduleJobLogEntity">
 		insert into schedule_job_log
 		(
 			`job_id`, 

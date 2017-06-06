@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.jiuair.dao.base.SysRoleDao">
+<mapper namespace="com.jiuair.base.dao.SysRoleDao">
 
-	<select id="queryObject" resultType="com.jiuair.entity.SysRoleEntity">
+	<select id="queryObject" resultType="com.jiuair.base.entity.SysRoleEntity">
 		select * from sys_role where role_id = #{value}
 	</select>
 	
-	<select id="queryList" resultType="com.jiuair.entity.SysRoleEntity">
+	<select id="queryList" resultType="com.jiuair.base.entity.SysRoleEntity">
 		select * from sys_role 
 		<where>
 			<if test="roleName != null and roleName.trim() != ''">
@@ -42,7 +42,7 @@
 		</where>
 	</select>
 	
-	<insert id="save" parameterType="com.jiuair.entity.SysRoleEntity" useGeneratedKeys="true" keyProperty="roleId">
+	<insert id="save" parameterType="com.jiuair.base.entity.SysRoleEntity" useGeneratedKeys="true" keyProperty="roleId">
 		insert into sys_role
 		(
 			`role_id`, 
@@ -61,7 +61,7 @@
 		)
 	</insert>
 	 
-	<update id="update" parameterType="com.jiuair.entity.SysRoleEntity">
+	<update id="update" parameterType="com.jiuair.base.entity.SysRoleEntity">
 		update sys_role 
 		<set> 
 			<if test="roleName != null">`role_name` = #{roleName}, </if>
